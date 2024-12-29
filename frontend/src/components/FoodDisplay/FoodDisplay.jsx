@@ -11,7 +11,8 @@ const FoodDisplay = ({category}) => {
     <div className='food-display' id='food-display'>
         <h2>Top dishes near you</h2>
         <div className="food-display-list">
-            {food_list.map((item, index) => {
+{/*             get data from food list arrary above and map it on this food item component below
+ */}            {food_list.map((item, index) => {
 /*                 return one component that take the food data display that in a card (use food item component).
                     pass the raw data using props, but not designing the food item
  */                return <FoodItem key={index} id={item.id} name={item.name} description={item.description} price={item.price} image ={item.image} />

@@ -3,12 +3,26 @@
 import React from 'react'
 import './FoodItem.css'
 import { assets } from '../../assets/assets'
+import { useState } from 'react'
 
 const FoodItem = ({id, name, price, description, image}) => {
+
+    const [itemCount, setItemCount] = useState(0)
+
   return (
     <div className='food-item'>
         <div className="food-item-img-container">
             <img className='food-item-image' src ={image} alt="" />
+            {/* If itemCount is 0. It shows an "add" button, itemcount increment 1 onclick
+            prev represents the current value of itemCount when the function is called
+            itemcount value increment by setitemcount function */
+            !itemCount
+                ?<img className='add' onClick = {()=>setItemCount(prev => prev + 1)} src={assets.add_icon_white} />
+/*                 If itemCount is greater than 0: The "add" button is replaced by a counter (<div> with className="food-item-counter" */
+                : <div className="food-item-counter">
+
+                </div>
+            }
         </div>
         <div className="food-item-info">
             <div className="food-item-name-rating">
