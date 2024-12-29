@@ -20,7 +20,10 @@ const FoodItem = ({id, name, price, description, image}) => {
                 ?<img className='add' onClick = {()=>setItemCount(prev => prev + 1)} src={assets.add_icon_white} />
 /*                 If itemCount is greater than 0: The "add" button is replaced by a counter (<div> with className="food-item-counter" */
                 : <div className="food-item-counter">
-
+{/*               increment or decrement the itemCount state based on which button is clicked
+ */}                <img onClick={() => setItemCount((prev) => prev - 1)} src={assets.remove_icon_red} />
+                    <p>{itemCount}</p>
+                    <img onClick={() => setItemCount((prev) => prev + 1)} src={assets.add_icon_green} />
                 </div>
             }
         </div>
