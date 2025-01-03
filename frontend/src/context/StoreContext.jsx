@@ -36,6 +36,21 @@ const StoreContextProvider = (props) => {
     // props represents the properties passed to the StoreContextProvider 
     // when it is used
 
+    const [cartItems, setCartItems] = useState([]);
+
+    const addToCart = (itemID) => {
+        if(!cartItems[itemID]){
+            setCartItems((prev)=>({...prev,[itemID]:1}))
+        }
+        else{
+            setCartItems((prev)=>({...prev,[itemID]:prev[itemID]+1}))
+        }
+    }
+
+    const removeFromCart = (itemID) => {
+        setCartItems((prev)=>({...prev,[itemID]:prev[itemID]-1}))
+    }  
+
     const contextValue = {
         // The object contextValue holds the data (state, functions, etc.) 
         // that you want to share with child components. This value will be 
